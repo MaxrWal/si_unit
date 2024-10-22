@@ -1,6 +1,7 @@
+"use client"
+
 import { useState } from "react";
 
-// List of SI base units
 const siBaseUnits = [
   { symbol: "s", name: "Time (seconds)" },
   { symbol: "m", name: "Length (meters)" },
@@ -21,12 +22,39 @@ const HomePage = () => {
     mol: 0,
     cd: 0,
   });
+  const [description, setDescription] = useState("");
 
   const handleExponentChange = (unit: string, newValue: number) => {
     setExponents((prevState) => ({
       ...prevState,
       [unit]: newValue,
     }));
+  };
+
+  const getResultingUnit = () => {
+    return Object.entries(exponents)
+      .filter(([unit, exp]) => exp !== 0)
+      .map(([unit, exp]) => `${unit}^${exp}`)
+      .join(" · ") || "Dimensionless";
+  };
+
+  const fetchUnitDescription = async (unit: string) => {
+    try {
+      const response = await fetch(`/api/units?unit=${unit}`);
+      const data = await response.json();
+      setDescription(data.description || "No description available");
+    } catch (error) {
+      setDescription("Error fetching unit description.");
+    }
+  };
+
+  const handleSearch = () => {
+    const resultingUnit = getResultingUnit();
+    if (resultingUnit !== "Dimensionless") {
+      fetchUnitDescription(resultingUnit);
+    } else {
+      setDescription("Dimensionless");
+    }
   };
 
   return (
@@ -44,7 +72,7 @@ const HomePage = () => {
               {unit.name} ({unit.symbol})
             </label>
             <input
-              id={`input-${unit.symbol}`} // Add a unique ID for each input
+              id={`input-${unit.symbol}`}
               type="number"
               value={exponents[unit.symbol as keyof typeof exponents]}
               onChange={(e) =>
@@ -58,12 +86,16 @@ const HomePage = () => {
 
       <div style={{ marginTop: "20px" }}>
         <h2>Resulting Unit:</h2>
-        <p style={{ fontSize: "20px", fontWeight: "bold" }}>
-          {Object.entries(exponents)
-            .filter(([unit, exp]) => exp !== 0) // Filter out units with exponent 0
-            .map(([unit, exp]) => `${unit}^${exp}`) // Display unit^exponent
-            .join(" · ") || "Dimensionless"}
-        </p>
+        <p style={{ fontSize: "20px", fontWeight: "bold" }}>{getResultingUnit()}</p>
+
+        <button onClick={handleSearch}>Fetch Description</button>
+
+        {description && (
+          <div style={{ marginTop: "20px" }}>
+            <h2>Description:</h2>
+            <p>{description}</p>
+          </div>
+        )}
       </div>
     </div>
   );
