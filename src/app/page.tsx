@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 
 // List of SI base units
