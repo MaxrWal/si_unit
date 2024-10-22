@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from "react";
 
 // List of SI base units
@@ -14,7 +12,6 @@ const siBaseUnits = [
 ];
 
 const HomePage = () => {
-  // State for exponents of each SI unit
   const [exponents, setExponents] = useState({
     s: 0,
     m: 0,
@@ -25,7 +22,6 @@ const HomePage = () => {
     cd: 0,
   });
 
-  // Function to update the exponent when the user changes it
   const handleExponentChange = (unit: string, newValue: number) => {
     setExponents((prevState) => ({
       ...prevState,
@@ -36,7 +32,6 @@ const HomePage = () => {
   return (
     <div style={{ padding: "20px" }}>
       <h1>SI Unit Exponent Selector</h1>
-
       <p>
         Adjust the exponents of the SI base units below, and see the combined
         result in real-time!
@@ -45,10 +40,11 @@ const HomePage = () => {
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {siBaseUnits.map((unit) => (
           <div key={unit.symbol} style={{ display: "flex", alignItems: "center" }}>
-            <label style={{ marginRight: "10px" }}>
+            <label htmlFor={`input-${unit.symbol}`} style={{ marginRight: "10px" }}>
               {unit.name} ({unit.symbol})
             </label>
             <input
+              id={`input-${unit.symbol}`} // Add a unique ID for each input
               type="number"
               value={exponents[unit.symbol as keyof typeof exponents]}
               onChange={(e) =>
