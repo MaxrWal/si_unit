@@ -1,28 +1,49 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    "jsx": "preserve", // This setting ensures TypeScript can handle JSX
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
     "incremental": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@data/*": ["./data/*"]
-    }
+      "@/*": [
+        "src/*"
+      ],
+      "@data/*": [
+        "./data/*"
+      ]
+    },
+    "types": [
+      "jest",
+      "@testing-library/jest-dom"
+    ] // Add Jest and testing-library types
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "globals.d.ts",
+    "jest.setup.ts",
+    "src/**/*",
+    ".next/types/**/*.ts"
+  ] // Include necessary files for TypeScript to recognize
+  ,
+  "exclude": [
+    "node_modules"
+  ]
 }
