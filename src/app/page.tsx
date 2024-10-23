@@ -33,7 +33,7 @@ const HomePage = () => {
 
   const getResultingUnit = () => {
     return Object.entries(exponents)
-      .filter(([unit, exp]) => exp !== 0)
+      .filter(([_unit, exp]) => exp !== 0)
       .map(([unit, exp]) => `${unit}^${exp}`)
       .join(" · ") || "Dimensionless";
   };
@@ -43,7 +43,7 @@ const HomePage = () => {
       const response = await fetch(`/api/units?unit=${unit}`);
       const data = await response.json();
       setDescription(data.description || "No description available");
-    } catch (error) {
+    } catch (_error) {
       setDescription("Error fetching unit description.");
     }
   };
