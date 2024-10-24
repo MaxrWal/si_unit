@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
@@ -58,44 +58,63 @@ const HomePage = () => {
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>SI Unit Exponent Selector</h1>
-      <p>
-        Adjust the exponents of the SI base units below, and see the combined
-        result in real-time!
-      </p>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+    <div className="flex flex-row space-x-10 p-8">
+      <div className="flex flex-col space-y-4">
         {siBaseUnits.map((unit) => (
-          <div key={unit.symbol} style={{ display: "flex", alignItems: "center" }}>
-            <label htmlFor={`input-${unit.symbol}`} style={{ marginRight: "10px" }}>
-              {unit.name} ({unit.symbol})
+          <div
+            key={unit.symbol}
+            className="flex flex-col items-center justify-center border border-gray-500 p-4 w-36 h-28"
+          >
+            <label className="text-center text-xs">
+              {unit.name}
+              <div className="flex flex-col items-center mt-2">
+                <span className="text-lg">
+                  {unit.symbol}
+                  <sup>n</sup>, n = {exponents[unit.symbol as keyof typeof exponents]}
+                </span>
+                <div className="flex flex-col mt-2 space-y-1">
+                  <button
+                    className="px-2 py-1 border border-gray-400 rounded bg-gray-100 hover:bg-gray-200"
+                    onClick={() =>
+                      handleExponentChange(
+                        unit.symbol,
+                        exponents[unit.symbol as keyof typeof exponents] + 1
+                      )
+                    }
+                  >
+                    ▲
+                  </button>
+                  <button
+                    className="px-2 py-1 border border-gray-400 rounded bg-gray-100 hover:bg-gray-200"
+                    onClick={() =>
+                      handleExponentChange(
+                        unit.symbol,
+                        exponents[unit.symbol as keyof typeof exponents] - 1
+                      )
+                    }
+                  >
+                    ▼
+                  </button>
+                </div>
+              </div>
             </label>
-            <input
-              id={`input-${unit.symbol}`}
-              type="number"
-              value={exponents[unit.symbol as keyof typeof exponents]}
-              onChange={(e) =>
-                handleExponentChange(unit.symbol, parseInt(e.target.value) || 0)
-              }
-              style={{ width: "50px", textAlign: "center" }}
-            />
           </div>
         ))}
       </div>
 
-      <div style={{ marginTop: "20px" }}>
-        <h2>Resulting Unit:</h2>
-        <p style={{ fontSize: "20px", fontWeight: "bold" }}>{getResultingUnit()}</p>
-
-        <button onClick={handleSearch}>Fetch Description</button>
-
-        {description && (
-          <div style={{ marginTop: "20px" }}>
-            <h2>Description:</h2>
-            <p>{description}</p>
-          </div>
-        )}
+      <div className="flex flex-col items-center justify-between border border-gray-500 p-6 w-56 h-96">
+        <h2 className="text-2xl">{getResultingUnit()}</h2>
+        <h3 className="text-lg">square meter</h3>
+        <h4 className="text-base">Area</h4>
+        <p className="text-center">
+          {description || "Description of what area is, AI generated if unavailable"}
+        </p>
+        <button
+          onClick={handleSearch}
+          className="px-4 py-2 mt-4 border border-gray-500 rounded bg-gray-100 hover:bg-gray-200"
+        >
+          Fetch Description
+        </button>
       </div>
     </div>
   );

@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles/globals.css */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.unit-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid black;
+  width: 150px;
+  height: 100px;
+}
+
+.exponent-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.arrows button {
+  padding: 2px 5px;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: #f0f0f0;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid black;
+  width: 200px;
+  height: 400px;
+}
+
+.result h2,
+.result h3,
+.result h4 {
+  margin: 10px 0;
+}
+
+.result p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+button {
+  padding: 5px 10px;
+  border: 1px solid black;
+  background-color: #e0e0e0;
+  cursor: pointer;
+}
