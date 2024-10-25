@@ -1,12 +1,22 @@
-//src/app/api/units/route.ts
+// src/app/api/units/route.ts
 
 import { NextResponse } from "next/server";
-import { siUnits } from "@data/siUnits";
+import siUnitsData from "@data/siUnits.json";
 import { constructUnitString } from "@utils/unitStringConstructor";
+
+type SIUnitsDataType = Record<string, {
+  name: string;
+  quantity: string;
+  SISymbol: string;
+  quantitySymbol: string | null;
+  alternateSIExpression: string | null;
+  duplicates: string | null;
+}>;
+
+const siUnits = siUnitsData as SIUnitsDataType;
 
 // Simulate external API call for units
 const fetchFromExternalAPI = async (unit: string) => {
-  // Simulate fetching from an external API, returning a dynamic result.
   return { description: `Generated description for ${unit}` };
 };
 
@@ -18,15 +28,20 @@ export async function GET(request: Request) {
   const unitString = constructUnitString(searchParams);
 
   // Check static table first
-  const foundUnit = siUnits.find((item) => item.unit === unitString);
+  const foundUnit = siUnits[unitString];
 
   if (foundUnit) {
-    // Return static result if unit is found
-    return NextResponse.json({ description: foundUnit.description });
+    return NextResponse.json({
+      name: foundUnit.name,
+      quantity: foundUnit.quantity,
+      SISymbol: foundUnit.SISymbol,
+      quantitySymbol: foundUnit.quantitySymbol,
+      alternateSIExpression: foundUnit.alternateSIExpression,
+      duplicates: foundUnit.duplicates,
+    });
   }
 
   // If not found, query external API (or simulate it)
   const externalResponse = await fetchFromExternalAPI(unitString);
-
   return NextResponse.json(externalResponse);
 }

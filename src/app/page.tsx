@@ -1,4 +1,4 @@
-//src/app/page.tsx
+// src/app/page.tsx
 
 "use client";
 
@@ -38,14 +38,16 @@ const HomePage = () => {
   };
 
   const getResultingUnit = () => {
-    return constructUnitString(new URLSearchParams(
-      Object.entries(exponents)
-        .filter(([_unit, exp]) => exp !== 0)
-        .reduce((params, [unit, exp]) => {
-          params[unit] = exp.toString();
-          return params;
-        }, {} as Record<string, string>)
-    ));
+    return constructUnitString(
+      new URLSearchParams(
+        Object.entries(exponents)
+          .filter(([_unit, exp]) => exp !== 0)
+          .reduce((params, [unit, exp]) => {
+            params[unit] = exp.toString();
+            return params;
+          }, {} as Record<string, string>)
+      )
+    );
   };
 
   const fetchUnitDescription = async () => {
@@ -61,7 +63,9 @@ const HomePage = () => {
     try {
       const response = await fetch(`/api/units?${queryParams.toString()}`);
       const data = await response.json();
-      setDescription(data.description || "No description available");
+      setDescription(data.name 
+        ? `Name: ${data.name}, Quantity: ${data.quantity}, Symbol: ${data.SISymbol}`
+        : "No description available");
     } catch (_error) {
       setDescription("Error fetching unit description.");
     }

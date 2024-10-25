@@ -1,0 +1,18 @@
+{
+  "m^2": {
+    "name": "square metre",
+    "quantity": "area",
+    "SISymbol": "m^2",
+    "quantitySymbol": null,
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^1 · kg^1": {
+    "name": "newton",
+    "quantity": "force",
+    "SISymbol": "N",
+    "quantitySymbol": "F",
+    "alternateSIExpression": "kg·m/s^2",
+    "duplicates": null
+  }
+}
