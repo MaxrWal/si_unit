@@ -1,5 +1,3 @@
-// src/app/page.tsx
-
 "use client";
 
 import { useState } from "react";
@@ -28,7 +26,15 @@ const HomePage = () => {
     mol: 0,
     cd: 0,
   });
-  const [description, setDescription] = useState("");
+  
+  const [unitDetails, setUnitDetails] = useState<{
+    name: string | null;
+    quantity: string | null;
+    SISymbol: string | null;
+    quantitySymbol: string | null;
+    alternateSIExpression: string | null;
+    duplicates: string | null;
+  } | null>(null);
 
   const handleExponentChange = (unit: string, newValue: number) => {
     setExponents((prevState) => ({
@@ -63,11 +69,23 @@ const HomePage = () => {
     try {
       const response = await fetch(`/api/units?${queryParams.toString()}`);
       const data = await response.json();
-      setDescription(data.name 
-        ? `Name: ${data.name}, Quantity: ${data.quantity}, Symbol: ${data.SISymbol}`
-        : "No description available");
+      setUnitDetails({
+        name: data.name || "No name available",
+        quantity: data.quantity || "No quantity available",
+        SISymbol: data.SISymbol || "No SI symbol available",
+        quantitySymbol: data.quantitySymbol || "No quantity symbol available",
+        alternateSIExpression: data.alternateSIExpression || "None",
+        duplicates: data.duplicates || "None",
+      });
     } catch (_error) {
-      setDescription("Error fetching unit description.");
+      setUnitDetails({
+        name: "Error fetching unit description.",
+        quantity: null,
+        SISymbol: null,
+        quantitySymbol: null,
+        alternateSIExpression: null,
+        duplicates: null,
+      });
     }
   };
 
@@ -112,10 +130,31 @@ const HomePage = () => {
         ))}
       </div>
 
-      <div className="flex flex-col items-center justify-between border border-gray-500 p-6 w-56 h-96">
+      <div className="flex flex-col items-center justify-between border border-gray-500 p-6 w-56 h-auto">
         <h2 className="text-2xl">Resulting Unit:</h2>
         <BlockMath math={getResultingUnit() === "Dimensionless" ? "Dimensionless" : getResultingUnit()} />
-        <p>{description || "Description of what area is, AI generated if unavailable"}</p>
+        
+        <div className="flex flex-col space-y-4 mt-4">
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Name:</strong> {unitDetails?.name || "No description available"}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Quantity:</strong> {unitDetails?.quantity || "No quantity available"}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>SI Symbol:</strong> {unitDetails?.SISymbol || "No SI symbol available"}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Quantity Symbol:</strong> {unitDetails?.quantitySymbol || "No quantity symbol available"}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Alternate SI Expression:</strong> {unitDetails?.alternateSIExpression || "None"}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Duplicates:</strong> {unitDetails?.duplicates || "None"}
+          </div>
+        </div>
+
         <button
           onClick={fetchUnitDescription}
           className="px-4 py-2 mt-4 border border-gray-500 rounded bg-gray-100 hover:bg-gray-200"
