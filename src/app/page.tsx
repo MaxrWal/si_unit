@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 
 const siBaseUnits = [
   { symbol: "s", name: "Time (seconds)" },
@@ -73,28 +74,24 @@ const HomePage = () => {
                   <sup>n</sup>, n = {exponents[unit.symbol as keyof typeof exponents]}
                 </span>
                 <div className="flex flex-col mt-2 space-y-1">
-                  <button
-                    className="px-2 py-1 border border-gray-400 rounded bg-gray-100 hover:bg-gray-200"
+                  <ChevronUpIcon
+                    className="h-6 w-6 text-gray-500 hover:text-gray-700 cursor-pointer"
                     onClick={() =>
                       handleExponentChange(
                         unit.symbol,
                         exponents[unit.symbol as keyof typeof exponents] + 1
                       )
                     }
-                  >
-                    ▲
-                  </button>
-                  <button
-                    className="px-2 py-1 border border-gray-400 rounded bg-gray-100 hover:bg-gray-200"
+                  />
+                  <ChevronDownIcon
+                    className="h-6 w-6 text-gray-500 hover:text-gray-700 cursor-pointer"
                     onClick={() =>
                       handleExponentChange(
                         unit.symbol,
                         exponents[unit.symbol as keyof typeof exponents] - 1
                       )
                     }
-                  >
-                    ▼
-                  </button>
+                  />
                 </div>
               </div>
             </label>
