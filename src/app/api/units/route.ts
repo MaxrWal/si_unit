@@ -1,23 +1,13 @@
-// src/app/api/units/route.ts
+//src/app/api/units/route.ts
+
 import { NextResponse } from "next/server";
 import { siUnits } from "@data/siUnits";
+import { constructUnitString } from "@utils/unitStringConstructor";
 
 // Simulate external API call for units
 const fetchFromExternalAPI = async (unit: string) => {
   // Simulate fetching from an external API, returning a dynamic result.
   return { description: `Generated description for ${unit}` };
-};
-
-// Helper function to construct unit string
-const constructUnitString = (params: URLSearchParams) => {
-  const units = ['s', 'm', 'kg', 'A', 'K', 'mol', 'cd'];
-  return units
-    .map((unit) => {
-      const exponent = params.get(unit);
-      return exponent && exponent !== "0" ? `${unit}^${exponent}` : null;
-    })
-    .filter(Boolean) // Remove null values
-    .join(" · ") || "Dimensionless";
 };
 
 // API route handler
@@ -26,9 +16,6 @@ export async function GET(request: Request) {
 
   // Construct the unit string from the query parameters
   const unitString = constructUnitString(searchParams);
-
-  // return NextResponse.json({ description: unitString });
-  console.log(unitString)
 
   // Check static table first
   const foundUnit = siUnits.find((item) => item.unit === unitString);

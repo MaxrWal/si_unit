@@ -1,9 +1,12 @@
+//src/app/page.tsx
+
 "use client";
 
 import { useState } from "react";
 import { BlockMath } from "react-katex";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
 import "katex/dist/katex.min.css";
+import { constructUnitString } from "@utils/unitStringConstructor";
 
 const siBaseUnits = [
   { symbol: "s", name: "Time (seconds)" },
@@ -35,12 +38,14 @@ const HomePage = () => {
   };
 
   const getResultingUnit = () => {
-    const unitString = Object.entries(exponents)
-      .filter(([_unit, exp]) => exp !== 0)
-      .map(([unit, exp]) => `${unit}^{${exp}}`)
-      .join(" \\cdot ");
-
-    return unitString || "Dimensionless";
+    return constructUnitString(new URLSearchParams(
+      Object.entries(exponents)
+        .filter(([_unit, exp]) => exp !== 0)
+        .reduce((params, [unit, exp]) => {
+          params[unit] = exp.toString();
+          return params;
+        }, {} as Record<string, string>)
+    ));
   };
 
   const fetchUnitDescription = async () => {
