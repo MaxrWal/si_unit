@@ -17,6 +17,8 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Unit not provided" }, { status: 400 });
   }
 
+  // return NextResponse.json({ description: `${JSON.stringify(unit)}` });
+
   // Check static table first
   const foundUnit = siUnits.find((item) => item.unit === unit);
 

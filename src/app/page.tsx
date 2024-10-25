@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { BlockMath } from "react-katex";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
+import "katex/dist/katex.min.css"; // Ensure KaTeX styling is applied
 
 const siBaseUnits = [
   { symbol: "s", name: "Time (seconds)" },
@@ -33,10 +35,12 @@ const HomePage = () => {
   };
 
   const getResultingUnit = () => {
-    return Object.entries(exponents)
+    const unitString = Object.entries(exponents)
       .filter(([_unit, exp]) => exp !== 0)
-      .map(([unit, exp]) => `${unit}^${exp}`)
-      .join(" · ") || "Dimensionless";
+      .map(([unit, exp]) => `${unit}^{${exp}}`)
+      .join(" \\cdot ");
+
+    return unitString || "Dimensionless";
   };
 
   const fetchUnitDescription = async (unit: string) => {
@@ -100,12 +104,9 @@ const HomePage = () => {
       </div>
 
       <div className="flex flex-col items-center justify-between border border-gray-500 p-6 w-56 h-96">
-        <h2 className="text-2xl">{getResultingUnit()}</h2>
-        <h3 className="text-lg">square meter</h3>
-        <h4 className="text-base">Area</h4>
-        <p className="text-center">
-          {description || "Description of what area is, AI generated if unavailable"}
-        </p>
+        <h2 className="text-2xl">Resulting Unit:</h2>
+        <BlockMath math={getResultingUnit() === "Dimensionless" ? "Dimensionless" : getResultingUnit()} />
+        <p>{description || "Description of what area is, AI generated if unavailable"}</p>
         <button
           onClick={handleSearch}
           className="px-4 py-2 mt-4 border border-gray-500 rounded bg-gray-100 hover:bg-gray-200"
