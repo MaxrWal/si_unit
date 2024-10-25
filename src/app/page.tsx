@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BlockMath } from "react-katex";
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid";
-import "katex/dist/katex.min.css"; // Ensure KaTeX styling is applied
+import "katex/dist/katex.min.css";
 
 const siBaseUnits = [
   { symbol: "s", name: "Time (seconds)" },
@@ -43,22 +43,22 @@ const HomePage = () => {
     return unitString || "Dimensionless";
   };
 
-  const fetchUnitDescription = async (unit: string) => {
+  const fetchUnitDescription = async () => {
+    const queryParams = new URLSearchParams(
+      Object.entries(exponents)
+        .filter(([_unit, exp]) => exp !== 0)
+        .reduce((params, [unit, exp]) => {
+          params[unit] = exp.toString();
+          return params;
+        }, {} as Record<string, string>)
+    );
+
     try {
-      const response = await fetch(`/api/units?unit=${unit}`);
+      const response = await fetch(`/api/units?${queryParams.toString()}`);
       const data = await response.json();
       setDescription(data.description || "No description available");
     } catch (_error) {
       setDescription("Error fetching unit description.");
-    }
-  };
-
-  const handleSearch = () => {
-    const resultingUnit = getResultingUnit();
-    if (resultingUnit !== "Dimensionless") {
-      fetchUnitDescription(resultingUnit);
-    } else {
-      setDescription("Dimensionless");
     }
   };
 
@@ -108,7 +108,7 @@ const HomePage = () => {
         <BlockMath math={getResultingUnit() === "Dimensionless" ? "Dimensionless" : getResultingUnit()} />
         <p>{description || "Description of what area is, AI generated if unavailable"}</p>
         <button
-          onClick={handleSearch}
+          onClick={fetchUnitDescription}
           className="px-4 py-2 mt-4 border border-gray-500 rounded bg-gray-100 hover:bg-gray-200"
         >
           Fetch Description

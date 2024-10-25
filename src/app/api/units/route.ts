@@ -8,19 +8,30 @@ const fetchFromExternalAPI = async (unit: string) => {
   return { description: `Generated description for ${unit}` };
 };
 
+// Helper function to construct unit string
+const constructUnitString = (params: URLSearchParams) => {
+  const units = ['s', 'm', 'kg', 'A', 'K', 'mol', 'cd'];
+  return units
+    .map((unit) => {
+      const exponent = params.get(unit);
+      return exponent && exponent !== "0" ? `${unit}^${exponent}` : null;
+    })
+    .filter(Boolean) // Remove null values
+    .join(" · ") || "Dimensionless";
+};
+
 // API route handler
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const unit = searchParams.get("unit");
 
-  if (!unit) {
-    return NextResponse.json({ error: "Unit not provided" }, { status: 400 });
-  }
+  // Construct the unit string from the query parameters
+  const unitString = constructUnitString(searchParams);
 
-  // return NextResponse.json({ description: `${JSON.stringify(unit)}` });
+  // return NextResponse.json({ description: unitString });
+  console.log(unitString)
 
   // Check static table first
-  const foundUnit = siUnits.find((item) => item.unit === unit);
+  const foundUnit = siUnits.find((item) => item.unit === unitString);
 
   if (foundUnit) {
     // Return static result if unit is found
@@ -28,7 +39,7 @@ export async function GET(request: Request) {
   }
 
   // If not found, query external API (or simulate it)
-  const externalResponse = await fetchFromExternalAPI(unit);
+  const externalResponse = await fetchFromExternalAPI(unitString);
 
   return NextResponse.json(externalResponse);
 }
