@@ -1,18 +1,306 @@
 {
-  "m^2": {
-    "name": "square metre",
-    "quantity": "area",
-    "SISymbol": "m^2",
-    "quantitySymbol": null,
+  "s^-1 · m^1": {
+    "name": "metre per second",
+    "quantity": "speed, velocity",
+    "SISymbol": "m/s",
+    "quantitySymbol": "v",
     "alternateSIExpression": null,
     "duplicates": null
   },
-  "s^-2 · m^1 · kg^1": {
-    "name": "newton",
-    "quantity": "force",
-    "SISymbol": "N",
-    "quantitySymbol": "F",
-    "alternateSIExpression": "kg·m/s^2",
+  "s^-2 · m^1": {
+    "name": "metre per second squared",
+    "quantity": "acceleration",
+    "SISymbol": "m/s²",
+    "quantitySymbol": "a",
+    "alternateSIExpression": null,
     "duplicates": null
+  },
+  "m^-1": {
+    "name": "reciprocal metre",
+    "quantity": "wavenumber",
+    "SISymbol": "m⁻¹",
+    "quantitySymbol": "ν̃",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "m^-3 · kg^1": {
+    "name": "kilogram per cubic metre",
+    "quantity": "density",
+    "SISymbol": "kg/m³",
+    "quantitySymbol": "ρ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "m^-2 · kg^1": {
+    "name": "kilogram per square metre",
+    "quantity": "surface density",
+    "SISymbol": "kg/m²",
+    "quantitySymbol": "σ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "m^3 · kg^-1": {
+    "name": "cubic metre per kilogram",
+    "quantity": "specific volume",
+    "SISymbol": "m³/kg",
+    "quantitySymbol": "v",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "m^-2 · A^1": {
+    "name": "ampere per square metre",
+    "quantity": "current density",
+    "SISymbol": "A/m²",
+    "quantitySymbol": "J",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "m^-1 · A^1": {
+    "name": "ampere per metre",
+    "quantity": "magnetic field strength",
+    "SISymbol": "A/m",
+    "quantitySymbol": "H",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "m^-3 · mol^1": {
+    "name": "mole per cubic metre",
+    "quantity": "amount concentration",
+    "SISymbol": "mol/m³",
+    "quantitySymbol": "c",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "m^-2 · cd^1": {
+    "name": "candela per square metre",
+    "quantity": "luminance",
+    "SISymbol": "cd/m²",
+    "quantitySymbol": "Lᵥ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-1 · m^-1 · kg^1": {
+    "name": "pascal-second",
+    "quantity": "dynamic viscosity",
+    "SISymbol": "Pa·s",
+    "quantitySymbol": "η",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^2 · kg^1": {
+    "name": "newton-metre",
+    "quantity": "torque",
+    "SISymbol": "N·m",
+    "quantitySymbol": "τ",
+    "alternateSIExpression": null,
+    "duplicates": "joule"
+  },
+  "s^-2 · kg^1": {
+    "name": "newton per metre",
+    "quantity": "surface tension",
+    "SISymbol": "N/m",
+    "quantitySymbol": "T",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-1": {
+    "name": "radian per second",
+    "quantity": "angular velocity",
+    "SISymbol": "rad/s",
+    "quantitySymbol": "ω",
+    "alternateSIExpression": null,
+    "duplicates": "becquerel"
+  },
+  "s^-2": {
+    "name": "radian per second squared",
+    "quantity": "angular acceleration",
+    "SISymbol": "rad/s²",
+    "quantitySymbol": "α",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-3 · kg^1": {
+    "name": "watt per square metre",
+    "quantity": "irradiance, heat flux density",
+    "SISymbol": "W/m²",
+    "quantitySymbol": "E",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^2 · kg^1 · K^-1": {
+    "name": "joule per kelvin",
+    "quantity": "heat capacity, entropy",
+    "SISymbol": "J/K",
+    "quantitySymbol": "C, S",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^2 · K^-1": {
+    "name": "joule per kilogram-kelvin",
+    "quantity": "specific heat capacity, specific entropy",
+    "SISymbol": "J/(kg·K)",
+    "quantitySymbol": "cₚ, cᵥ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^2": {
+    "name": "joule per kilogram",
+    "quantity": "specific energy",
+    "SISymbol": "J/kg",
+    "quantitySymbol": "e",
+    "alternateSIExpression": null,
+    "duplicates": "gray, sievert"
+  },
+  "s^-3 · m^1 · kg^1 · K^-1": {
+    "name": "watt per metre-kelvin",
+    "quantity": "thermal conductivity",
+    "SISymbol": "W/(m·K)",
+    "quantitySymbol": "λ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^-1 · kg^1": {
+    "name": "joule per cubic metre",
+    "quantity": "energy density",
+    "SISymbol": "J/m³",
+    "quantitySymbol": "u",
+    "alternateSIExpression": "Pa",
+    "duplicates": "pascal"
+  },
+  "s^-3 · m^1 · kg^1 · A^-1": {
+    "name": "volt per metre",
+    "quantity": "electric field strength",
+    "SISymbol": "V/m",
+    "quantitySymbol": "E",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^1 · m^-3 · A^1": {
+    "name": "coulomb per cubic metre",
+    "quantity": "electric charge density",
+    "SISymbol": "C/m³",
+    "quantitySymbol": "ρ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^1 · m^-2 · A^1": {
+    "name": "coulomb per square metre",
+    "quantity": "surface charge density",
+    "SISymbol": "C/m²",
+    "quantitySymbol": "σ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^4 · m^-3 · kg^-1 · A^2": {
+    "name": "farad per metre",
+    "quantity": "permittivity",
+    "SISymbol": "F/m",
+    "quantitySymbol": "ε",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^1 · kg^1 · A^-2": {
+    "name": "henry per metre",
+    "quantity": "permeability",
+    "SISymbol": "H/m",
+    "quantitySymbol": "μ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^2 · kg^1 · K^-1 · mol^-1": {
+    "name": "joule per mole-kelvin",
+    "quantity": "molar entropy, molar heat capacity",
+    "SISymbol": "J/(mol·K)",
+    "quantitySymbol": "Sₘ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-2 · m^2 · kg^1 · mol^-1": {
+    "name": "joule per mole",
+    "quantity": "molar energy",
+    "SISymbol": "J/mol",
+    "quantitySymbol": "Eₘ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^1 · kg^-1 · A^1": {
+    "name": "coulomb per kilogram",
+    "quantity": "exposure (radiation)",
+    "SISymbol": "C/kg",
+    "quantitySymbol": "X",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-3 · m^2": {
+    "name": "gray per second",
+    "quantity": "absorbed dose rate",
+    "SISymbol": "Gy/s",
+    "quantitySymbol": "Ḋ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-3 · m^2 · kg^1 · sr^-1": {
+    "name": "watt per steradian",
+    "quantity": "radiant intensity",
+    "SISymbol": "W/sr",
+    "quantitySymbol": "Iₑ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-3 · kg^1 · sr^-1": {
+    "name": "watt per square metre-steradian",
+    "quantity": "radiance",
+    "SISymbol": "W/(m²·sr)",
+    "quantitySymbol": "Lₑ",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "s^-1 · m^-3 · mol^1": {
+    "name": "katal per cubic metre",
+    "quantity": "catalytic activity concentration",
+    "SISymbol": "kat/m³",
+    "quantitySymbol": "c",
+    "alternateSIExpression": null,
+    "duplicates": null
+  },
+  "K^1": {
+    "name": "degree Celsius",
+    "quantity": "temperature",
+    "SISymbol": "°C",
+    "quantitySymbol": "t",
+    "alternateSIExpression": null,
+    "duplicates": "kelvin"
+  },
+  "DUPLICATE A s^-2 · m^2": {
+    "name": "gray",
+    "quantity": "absorbed dose",
+    "SISymbol": "Gy",
+    "quantitySymbol": "D",
+    "alternateSIExpression": "J/kg",
+    "duplicates": "joule per kilogram, sievert"
+  },
+  "DUPLICATE B s^-2 · m^2": {
+    "name": "sievert",
+    "quantity": "dose equivalent",
+    "SISymbol": "Sv",
+    "quantitySymbol": "H",
+    "alternateSIExpression": "J/kg",
+    "duplicates": "joule per kilogram, gray"
+  },
+  "DUPLICATE s^-1": {
+    "name": "becquerel",
+    "quantity": "radioactivity",
+    "SISymbol": "Bq",
+    "quantitySymbol": "A",
+    "alternateSIExpression": null,
+    "duplicates": "radian per second"
+  },
+  "DUPLICATE s^-2 · m^-1 · kg^1": {
+    "name": "pascal",
+    "quantity": "pressure",
+    "SISymbol": "Pa",
+    "quantitySymbol": "p",
+    "alternateSIExpression": "J/m³",
+    "duplicates": "joule per cubic metre"
   }
 }

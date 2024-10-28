@@ -69,22 +69,24 @@ const HomePage = () => {
     try {
       const response = await fetch(`/api/units?${queryParams.toString()}`);
       const data = await response.json();
+
+      // Set both fetched data and request data to state, use request data as fallback
       setUnitDetails({
-        name: data.name || "No name available",
-        quantity: data.quantity || "No quantity available",
-        SISymbol: data.SISymbol || "No SI symbol available",
-        quantitySymbol: data.quantitySymbol || "No quantity symbol available",
-        alternateSIExpression: data.alternateSIExpression || "None",
-        duplicates: data.duplicates || "None",
+        name: data.name || `Requested Unit: ${getResultingUnit()}`,
+        quantity: data.quantity || `Requested Quantity: ${getResultingUnit()}`,
+        SISymbol: data.SISymbol || `Requested SI Symbol: ${getResultingUnit()}`,
+        quantitySymbol: data.quantitySymbol || `Requested Quantity Symbol: ${getResultingUnit()}`,
+        alternateSIExpression: data.alternateSIExpression || `Requested Alternate Expression: ${getResultingUnit()}`,
+        duplicates: data.duplicates || `Requested Duplicates: ${getResultingUnit()}`,
       });
     } catch (_error) {
       setUnitDetails({
-        name: "Error fetching unit description.",
-        quantity: null,
-        SISymbol: null,
-        quantitySymbol: null,
-        alternateSIExpression: null,
-        duplicates: null,
+        name: `Requested Unit: ${getResultingUnit()}`,
+        quantity: `Requested Quantity: ${getResultingUnit()}`,
+        SISymbol: `Requested SI Symbol: ${getResultingUnit()}`,
+        quantitySymbol: `Requested Quantity Symbol: ${getResultingUnit()}`,
+        alternateSIExpression: `Requested Alternate Expression: ${getResultingUnit()}`,
+        duplicates: `Requested Duplicates: ${getResultingUnit()}`,
       });
     }
   };
@@ -136,22 +138,22 @@ const HomePage = () => {
         
         <div className="flex flex-col space-y-4 mt-4">
           <div className="border border-gray-300 p-4 w-full">
-            <strong>Name:</strong> {unitDetails?.name || "No description available"}
+            <strong>Name:</strong> {unitDetails?.name}
           </div>
           <div className="border border-gray-300 p-4 w-full">
-            <strong>Quantity:</strong> {unitDetails?.quantity || "No quantity available"}
+            <strong>Quantity:</strong> {unitDetails?.quantity}
           </div>
           <div className="border border-gray-300 p-4 w-full">
-            <strong>SI Symbol:</strong> {unitDetails?.SISymbol || "No SI symbol available"}
+            <strong>SI Symbol:</strong> {unitDetails?.SISymbol}
           </div>
           <div className="border border-gray-300 p-4 w-full">
-            <strong>Quantity Symbol:</strong> {unitDetails?.quantitySymbol || "No quantity symbol available"}
+            <strong>Quantity Symbol:</strong> {unitDetails?.quantitySymbol}
           </div>
           <div className="border border-gray-300 p-4 w-full">
-            <strong>Alternate SI Expression:</strong> {unitDetails?.alternateSIExpression || "None"}
+            <strong>Alternate SI Expression:</strong> {unitDetails?.alternateSIExpression}
           </div>
           <div className="border border-gray-300 p-4 w-full">
-            <strong>Duplicates:</strong> {unitDetails?.duplicates || "None"}
+            <strong>Duplicates:</strong> {unitDetails?.duplicates}
           </div>
         </div>
 
