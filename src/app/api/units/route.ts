@@ -11,6 +11,10 @@ type SIUnitsDataType = Record<string, {
   quantitySymbol: string | null;
   alternateSIExpression: string | null;
   duplicates: string | null;
+  dimension: string;
+  description: string;
+  field: string;
+  examples: string[] | string;
 }>;
 
 const siUnits = siUnitsData as SIUnitsDataType;
@@ -31,6 +35,7 @@ export async function GET(request: Request) {
   const foundUnit = siUnits[unitString];
 
   if (foundUnit) {
+    // Return detailed information if unit is found
     return NextResponse.json({
       name: foundUnit.name,
       quantity: foundUnit.quantity,
@@ -38,6 +43,10 @@ export async function GET(request: Request) {
       quantitySymbol: foundUnit.quantitySymbol,
       alternateSIExpression: foundUnit.alternateSIExpression,
       duplicates: foundUnit.duplicates,
+      dimension: foundUnit.dimension,
+      description: foundUnit.description,
+      field: foundUnit.field,
+      examples: foundUnit.examples,
     });
   }
 

@@ -34,19 +34,27 @@ const HomePage = () => {
     quantitySymbol: string | null;
     alternateSIExpression: string | null;
     duplicates: string | null;
+    dimension: string | null;
+    description: string | null;
+    field: string | null;
+    examples: string[] | null;
   } | null>(null);
 
   const handleExponentChange = (unit: string, newValue: number) => {
-    setExponents((prevState) => ({
-      ...prevState,
-      [unit]: newValue,
-    }));
+    setExponents((prevState) => {
+      const newState = {
+        ...prevState,
+        [unit]: newValue,
+      };
+      fetchUnitDescription(newState);
+      return newState;
+    });
   };
 
-  const getResultingUnit = () => {
+  const getResultingUnit = (currentExponents = exponents) => {
     return constructUnitString(
       new URLSearchParams(
-        Object.entries(exponents)
+        Object.entries(currentExponents)
           .filter(([_unit, exp]) => exp !== 0)
           .reduce((params, [unit, exp]) => {
             params[unit] = exp.toString();
@@ -56,9 +64,9 @@ const HomePage = () => {
     );
   };
 
-  const fetchUnitDescription = async () => {
+  const fetchUnitDescription = async (currentExponents = exponents) => {
     const queryParams = new URLSearchParams(
-      Object.entries(exponents)
+      Object.entries(currentExponents)
         .filter(([_unit, exp]) => exp !== 0)
         .reduce((params, [unit, exp]) => {
           params[unit] = exp.toString();
@@ -72,21 +80,29 @@ const HomePage = () => {
 
       // Set both fetched data and request data to state, use request data as fallback
       setUnitDetails({
-        name: data.name || `Requested Unit: ${getResultingUnit()}`,
-        quantity: data.quantity || `Requested Quantity: ${getResultingUnit()}`,
-        SISymbol: data.SISymbol || `Requested SI Symbol: ${getResultingUnit()}`,
-        quantitySymbol: data.quantitySymbol || `Requested Quantity Symbol: ${getResultingUnit()}`,
-        alternateSIExpression: data.alternateSIExpression || `Requested Alternate Expression: ${getResultingUnit()}`,
-        duplicates: data.duplicates || `Requested Duplicates: ${getResultingUnit()}`,
+        name: data.name || `Requested Unit: ${getResultingUnit(currentExponents)}`,
+        quantity: data.quantity || `Requested Quantity: ${getResultingUnit(currentExponents)}`,
+        SISymbol: data.SISymbol || `Requested SI Symbol: ${getResultingUnit(currentExponents)}`,
+        quantitySymbol: data.quantitySymbol || `Requested Quantity Symbol: ${getResultingUnit(currentExponents)}`,
+        alternateSIExpression: data.alternateSIExpression || `Requested Alternate Expression: ${getResultingUnit(currentExponents)}`,
+        duplicates: data.duplicates || `Requested Duplicates: ${getResultingUnit(currentExponents)}`,
+        dimension: data.dimension || `Requested Dimension: ${getResultingUnit(currentExponents)}`,
+        description: data.description || `Requested Description: ${getResultingUnit(currentExponents)}`,
+        field: data.field || `Requested Field: ${getResultingUnit(currentExponents)}`,
+        examples: data.examples || [`Requested Examples: ${getResultingUnit(currentExponents)}`],
       });
     } catch (_error) {
       setUnitDetails({
-        name: `Requested Unit: ${getResultingUnit()}`,
-        quantity: `Requested Quantity: ${getResultingUnit()}`,
-        SISymbol: `Requested SI Symbol: ${getResultingUnit()}`,
-        quantitySymbol: `Requested Quantity Symbol: ${getResultingUnit()}`,
-        alternateSIExpression: `Requested Alternate Expression: ${getResultingUnit()}`,
-        duplicates: `Requested Duplicates: ${getResultingUnit()}`,
+        name: `Requested Unit: ${getResultingUnit(currentExponents)}`,
+        quantity: `Requested Quantity: ${getResultingUnit(currentExponents)}`,
+        SISymbol: `Requested SI Symbol: ${getResultingUnit(currentExponents)}`,
+        quantitySymbol: `Requested Quantity Symbol: ${getResultingUnit(currentExponents)}`,
+        alternateSIExpression: `Requested Alternate Expression: ${getResultingUnit(currentExponents)}`,
+        duplicates: `Requested Duplicates: ${getResultingUnit(currentExponents)}`,
+        dimension: `Requested Dimension: ${getResultingUnit(currentExponents)}`,
+        description: `Requested Description: ${getResultingUnit(currentExponents)}`,
+        field: `Requested Field: ${getResultingUnit(currentExponents)}`,
+        examples: [`Requested Examples: ${getResultingUnit(currentExponents)}`],
       });
     }
   };
@@ -132,7 +148,7 @@ const HomePage = () => {
         ))}
       </div>
 
-      <div className="flex flex-col items-center justify-between border border-gray-500 p-6 w-56 h-auto">
+      <div className="flex flex-col items-center justify-between border border-gray-500 p-6 w-96 h-auto">
         <h2 className="text-2xl">Resulting Unit:</h2>
         <BlockMath math={getResultingUnit() === "Dimensionless" ? "Dimensionless" : getResultingUnit()} />
         
@@ -155,10 +171,22 @@ const HomePage = () => {
           <div className="border border-gray-300 p-4 w-full">
             <strong>Duplicates:</strong> {unitDetails?.duplicates}
           </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Dimension:</strong> {unitDetails?.dimension}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Description:</strong> {unitDetails?.description}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Field:</strong> {unitDetails?.field}
+          </div>
+          <div className="border border-gray-300 p-4 w-full">
+            <strong>Examples:</strong> {unitDetails?.examples?.join(', ')}
+          </div>
         </div>
 
         <button
-          onClick={fetchUnitDescription}
+          onClick={() => fetchUnitDescription()}
           className="px-4 py-2 mt-4 border border-gray-500 rounded bg-gray-100 hover:bg-gray-200"
         >
           Fetch Description

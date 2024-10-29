@@ -5,7 +5,11 @@
     "SISymbol": "m/s",
     "quantitySymbol": "v",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "LT^-1",
+    "description": "Measures the rate of change of position with respect to time.",
+    "field": "Kinematics",
+    "examples": ["Speed of a car", "Velocity of a river flow"]
   },
   "s^-2 · m^1": {
     "name": "metre per second squared",
@@ -13,7 +17,11 @@
     "SISymbol": "m/s²",
     "quantitySymbol": "a",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "LT^-2",
+    "description": "Measures the rate of change of velocity with respect to time.",
+    "field": "Kinematics",
+    "examples": ["Acceleration due to gravity", "Deceleration of a braking car"]
   },
   "m^-1": {
     "name": "reciprocal metre",
@@ -21,7 +29,11 @@
     "SISymbol": "m⁻¹",
     "quantitySymbol": "ν̃",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "L^-1",
+    "description": "Measures the spatial frequency of a wave.",
+    "field": "Optics, Wave Mechanics",
+    "examples": ["X-ray diffraction patterns", "Wave number of a sound wave"]
   },
   "m^-3 · kg^1": {
     "name": "kilogram per cubic metre",
@@ -29,7 +41,11 @@
     "SISymbol": "kg/m³",
     "quantitySymbol": "ρ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^-3",
+    "description": "Measures the mass per unit volume of a substance.",
+    "field": "Mechanics, Fluid Mechanics",
+    "examples": ["Density of water, Density of air"]
   },
   "m^-2 · kg^1": {
     "name": "kilogram per square metre",
@@ -37,7 +53,11 @@
     "SISymbol": "kg/m²",
     "quantitySymbol": "σ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^-2",
+    "description": "Measures the mass per unit area of a surface.",
+    "field": "Mechanics, Materials Science",
+    "examples": ["Mass per unit area of a sheet of paper, Mass per unit area of a thin film"]
   },
   "m^3 · kg^-1": {
     "name": "cubic metre per kilogram",
@@ -45,7 +65,11 @@
     "SISymbol": "m³/kg",
     "quantitySymbol": "v",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "M^-1L^3",
+    "description": "Measures the volume occupied by a unit mass of a substance.",
+    "field": "Thermodynamics, Fluid Mechanics",
+    "examples": ["Specific volume of steam, Specific volume of liquid water"]
   },
   "m^-2 · A^1": {
     "name": "ampere per square metre",
@@ -53,7 +77,11 @@
     "SISymbol": "A/m²",
     "quantitySymbol": "J",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "IT^-2L^-2",
+    "description": "Measures the electric current flowing through a unit area.",
+    "field": "Electromagnetism",
+    "examples": "Current density in a wire, Current density in a semiconductor"
   },
   "m^-1 · A^1": {
     "name": "ampere per metre",
@@ -61,7 +89,11 @@
     "SISymbol": "A/m",
     "quantitySymbol": "H",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "IL^-1",
+    "description": "Measures the strength of a magnetic field.",
+    "field": "Electromagnetism",
+    "examples": "Magnetic field strength inside a solenoid, Magnetic field strength of the Earth"
   },
   "m^-3 · mol^1": {
     "name": "mole per cubic metre",
@@ -69,7 +101,11 @@
     "SISymbol": "mol/m³",
     "quantitySymbol": "c",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "N L^-3",
+    "description": "Measures the amount of substance per unit volume of a solution.",
+    "field": "Chemistry",
+    "examples": "Concentration of a salt solution, Concentration of a gas in air"
   },
   "m^-2 · cd^1": {
     "name": "candela per square metre",
@@ -77,7 +113,11 @@
     "SISymbol": "cd/m²",
     "quantitySymbol": "Lᵥ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "J cd L^-2",
+    "description": "Measures the luminous intensity per unit projected area of a surface.",
+    "field": "Photometry",
+    "examples": "Luminance of a computer screen, Luminance of a light bulb"
   },
   "s^-1 · m^-1 · kg^1": {
     "name": "pascal-second",
@@ -85,7 +125,11 @@
     "SISymbol": "Pa·s",
     "quantitySymbol": "η",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^-1T^-1",
+    "description": "Measures the resistance of a fluid to shear stress.",
+    "field": "Fluid Mechanics",
+    "examples": "Viscosity of water, Viscosity of oil"
   },
   "s^-2 · m^2 · kg^1": {
     "name": "newton-metre",
@@ -93,7 +137,11 @@
     "SISymbol": "N·m",
     "quantitySymbol": "τ",
     "alternateSIExpression": null,
-    "duplicates": "joule"
+    "duplicates": "joule",
+    "dimension": "ML^2T^-2",
+    "description": "Measures the torque or rotational force applied to an object.",
+    "field": "Mechanics, Physics",
+    "examples": ["Torque applied to a wrench, Torque produced by an electric motor"]
   },
   "s^-2 · kg^1": {
     "name": "newton per metre",
@@ -101,7 +149,11 @@
     "SISymbol": "N/m",
     "quantitySymbol": "T",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "MT^-2",
+    "description": "Measures the surface tension of a liquid.",
+    "field": "Physics, Chemistry",
+    "examples": ["Surface tension of water, Surface tension of mercury"]
   },
   "s^-1": {
     "name": "radian per second",
@@ -109,7 +161,11 @@
     "SISymbol": "rad/s",
     "quantitySymbol": "ω",
     "alternateSIExpression": null,
-    "duplicates": "becquerel"
+    "duplicates": "becquerel",
+    "dimension": "T^-1",
+    "description": "Measures angular velocity or frequency.",
+    "field": "Physics, Mechanics",
+    "examples": ["Angular velocity of a spinning wheel, Frequency of a wave"]
   },
   "s^-2": {
     "name": "radian per second squared",
@@ -117,39 +173,11 @@
     "SISymbol": "rad/s²",
     "quantitySymbol": "α",
     "alternateSIExpression": null,
-    "duplicates": null
-  },
-  "s^-3 · kg^1": {
-    "name": "watt per square metre",
-    "quantity": "irradiance, heat flux density",
-    "SISymbol": "W/m²",
-    "quantitySymbol": "E",
-    "alternateSIExpression": null,
-    "duplicates": null
-  },
-  "s^-2 · m^2 · kg^1 · K^-1": {
-    "name": "joule per kelvin",
-    "quantity": "heat capacity, entropy",
-    "SISymbol": "J/K",
-    "quantitySymbol": "C, S",
-    "alternateSIExpression": null,
-    "duplicates": null
-  },
-  "s^-2 · m^2 · K^-1": {
-    "name": "joule per kilogram-kelvin",
-    "quantity": "specific heat capacity, specific entropy",
-    "SISymbol": "J/(kg·K)",
-    "quantitySymbol": "cₚ, cᵥ",
-    "alternateSIExpression": null,
-    "duplicates": null
-  },
-  "s^-2 · m^2": {
-    "name": "joule per kilogram",
-    "quantity": "specific energy",
-    "SISymbol": "J/kg",
-    "quantitySymbol": "e",
-    "alternateSIExpression": null,
-    "duplicates": "gray, sievert"
+    "duplicates": null,
+    "dimension": "T^-2",
+    "description": "Measures angular acceleration.",
+    "field": "Physics, Mechanics",
+    "examples": ["Angular acceleration of a rotating object"]
   },
   "s^-3 · m^1 · kg^1 · K^-1": {
     "name": "watt per metre-kelvin",
@@ -157,7 +185,11 @@
     "SISymbol": "W/(m·K)",
     "quantitySymbol": "λ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^2T^-3K^-1",
+    "description": "Measures thermal conductivity, the ability of a material to conduct heat.",
+    "field": "Physics, Thermodynamics",
+    "examples": ["Thermal conductivity of copper, Thermal conductivity of glass"]
   },
   "s^-2 · m^-1 · kg^1": {
     "name": "joule per cubic metre",
@@ -165,7 +197,11 @@
     "SISymbol": "J/m³",
     "quantitySymbol": "u",
     "alternateSIExpression": "Pa",
-    "duplicates": "pascal"
+    "duplicates": "pascal",
+    "dimension": "ML^-1T^-2",
+    "description": "Measures the energy stored per unit volume.",
+    "field": "Physics, Thermodynamics",
+    "examples": ["Energy density of a battery, Energy density of gasoline"]
   },
   "s^-3 · m^1 · kg^1 · A^-1": {
     "name": "volt per metre",
@@ -173,7 +209,11 @@
     "SISymbol": "V/m",
     "quantitySymbol": "E",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "MLT^-3I^-1",
+    "description": "Measures the strength of an electric field.",
+    "field": "Electromagnetism",
+    "examples": "Electric field between two charged plates, Electric field of a point charge"
   },
   "s^1 · m^-3 · A^1": {
     "name": "coulomb per cubic metre",
@@ -181,7 +221,11 @@
     "SISymbol": "C/m³",
     "quantitySymbol": "ρ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "IT^-1L^-3",
+    "description": "Measures the electric charge per unit volume.",
+    "field": "Electromagnetism",
+    "examples": "Charge density in a capacitor, Charge density in a conductor"
   },
   "s^1 · m^-2 · A^1": {
     "name": "coulomb per square metre",
@@ -189,7 +233,11 @@
     "SISymbol": "C/m²",
     "quantitySymbol": "σ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "IT^-1L^-2",
+    "description": "Measures the electric charge per unit area.",
+    "field": "Electromagnetism",
+    "examples": "Charge density on a capacitor plate, Charge density on a charged sphere"
   },
   "s^4 · m^-3 · kg^-1 · A^2": {
     "name": "farad per metre",
@@ -197,7 +245,11 @@
     "SISymbol": "F/m",
     "quantitySymbol": "ε",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "M^-1L^-3T^4I^2",
+    "description": "Measures the ability of a material to store electric charge.",
+    "field": "Electromagnetism",
+    "examples": "Permittivity of free space, Permittivity of a dielectric material"
   },
   "s^-2 · m^1 · kg^1 · A^-2": {
     "name": "henry per metre",
@@ -205,7 +257,11 @@
     "SISymbol": "H/m",
     "quantitySymbol": "μ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "MLT^-2I^-2",
+    "description": "Measures the ability of a material to magnetize in response to an applied magnetic field.",
+    "field": "Electromagnetism",
+    "examples": "Permeability of free space, Permeability of a ferromagnetic material"
   },
   "s^-2 · m^2 · kg^1 · K^-1 · mol^-1": {
     "name": "joule per mole-kelvin",
@@ -213,7 +269,11 @@
     "SISymbol": "J/(mol·K)",
     "quantitySymbol": "Sₘ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^2T^-2K^-1N^-1",
+    "description": "Measures the entropy or heat capacity per mole of a substance.",
+    "field": "Thermodynamics, Chemistry",
+    "examples": "Molar entropy of water, Molar heat capacity of iron"
   },
   "s^-2 · m^2 · kg^1 · mol^-1": {
     "name": "joule per mole",
@@ -221,7 +281,11 @@
     "SISymbol": "J/mol",
     "quantitySymbol": "Eₘ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^2T^-2N^-1",
+    "description": "Measures the energy per mole of a substance.",
+    "field": "Chemistry, Physics",
+    "examples": "Molar energy of a chemical reaction, Molar energy of a phase transition"
   },
   "s^1 · kg^-1 · A^1": {
     "name": "coulomb per kilogram",
@@ -229,7 +293,11 @@
     "SISymbol": "C/kg",
     "quantitySymbol": "X",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "IT^-1M^-1",
+    "description": "Measures the amount of ionizing radiation.",
+    "field": "Nuclear Physics",
+    "examples": "Exposure from X-rays, Exposure from gamma rays"
   },
   "s^-3 · m^2": {
     "name": "gray per second",
@@ -237,7 +305,11 @@
     "SISymbol": "Gy/s",
     "quantitySymbol": "Ḋ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "LT^-3",
+    "description": "Measures the rate at which ionizing radiation is absorbed by a material.",
+    "field": "Nuclear Physics",
+    "examples": "Dose rate from a radioactive source"
   },
   "s^-3 · m^2 · kg^1 · sr^-1": {
     "name": "watt per steradian",
@@ -245,7 +317,11 @@
     "SISymbol": "W/sr",
     "quantitySymbol": "Iₑ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^2T^-3Θ^-1",
+    "description": "Measures the power radiated by a source per unit solid angle.",
+    "field": "Optics, Physics",
+    "examples": "Radiant intensity of a laser, Radiant intensity of a light bulb"
   },
   "s^-3 · kg^1 · sr^-1": {
     "name": "watt per square metre-steradian",
@@ -253,7 +329,11 @@
     "SISymbol": "W/(m²·sr)",
     "quantitySymbol": "Lₑ",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "ML^-2T^-3Θ^-1",
+    "description": "Measures the radiant power emitted, reflected, transmitted or received by a surface per unit solid angle per unit projected area of the source.",
+    "field": "Optics, Physics",
+    "examples": "Radiance of the Sun, Radiance of a light-emitting diode"
   },
   "s^-1 · m^-3 · mol^1": {
     "name": "katal per cubic metre",
@@ -261,7 +341,11 @@
     "SISymbol": "kat/m³",
     "quantitySymbol": "c",
     "alternateSIExpression": null,
-    "duplicates": null
+    "duplicates": null,
+    "dimension": "NT^-1L^-3",
+    "description": "Measures the catalytic activity per unit volume.",
+    "field": "Chemistry",
+    "examples": "Catalytic activity of an enzyme solution"
   },
   "K^1": {
     "name": "degree Celsius",
@@ -269,7 +353,11 @@
     "SISymbol": "°C",
     "quantitySymbol": "t",
     "alternateSIExpression": null,
-    "duplicates": "kelvin"
+    "duplicates": "kelvin",
+    "dimension": "Θ",
+    "description": "Measures temperature on the Celsius scale.",
+    "field": "Thermodynamics, Physics",
+    "examples": "Temperature of a room, Temperature of boiling water"
   },
   "DUPLICATE A s^-2 · m^2": {
     "name": "gray",
@@ -277,7 +365,11 @@
     "SISymbol": "Gy",
     "quantitySymbol": "D",
     "alternateSIExpression": "J/kg",
-    "duplicates": "joule per kilogram, sievert"
+    "duplicates": "joule per kilogram, sievert",
+    "dimension": "LT^-2",
+    "description": "Measures the amount of ionizing radiation energy absorbed per unit mass of a material.",
+    "field": "Nuclear Physics",
+    "examples": "Dose from a medical X-ray, Dose from radiation therapy"
   },
   "DUPLICATE B s^-2 · m^2": {
     "name": "sievert",
@@ -285,7 +377,11 @@
     "SISymbol": "Sv",
     "quantitySymbol": "H",
     "alternateSIExpression": "J/kg",
-    "duplicates": "joule per kilogram, gray"
+    "duplicates": "joule per kilogram, gray",
+    "dimension": "LT^-2",
+    "description": "Measures the biological effect of ionizing radiation.",
+    "field": "Nuclear Physics",
+    "examples": "Effective dose from background radiation, Effective dose from a nuclear accident"
   },
   "DUPLICATE s^-1": {
     "name": "becquerel",
@@ -293,7 +389,11 @@
     "SISymbol": "Bq",
     "quantitySymbol": "A",
     "alternateSIExpression": null,
-    "duplicates": "radian per second"
+    "duplicates": "radian per second",
+    "dimension": "T^-1",
+    "description": "Measures the rate of radioactive decay.",
+    "field": "Nuclear Physics",
+    "examples": "Activity of a radioactive isotope"
   },
   "DUPLICATE s^-2 · m^-1 · kg^1": {
     "name": "pascal",
@@ -301,6 +401,10 @@
     "SISymbol": "Pa",
     "quantitySymbol": "p",
     "alternateSIExpression": "J/m³",
-    "duplicates": "joule per cubic metre"
+    "duplicates": "joule per cubic metre",
+    "dimension": "ML^-1T^-2",
+    "description": "Measures the force per unit area.",
+    "field": "Mechanics, Physics",
+    "examples": "Atmospheric pressure, Hydrostatic pressure"
   }
 }
